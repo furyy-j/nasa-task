@@ -1,17 +1,11 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs/internal/Subject';
+import { takeUntil } from 'rxjs';
 
 import { SingleDayPhoto } from '../../shared/models/mission-manifest.model';
 import { MissionService } from '../../shared/services/mission.service';
-import {
-  Component,
-  EventEmitter,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { Subject } from 'rxjs/internal/Subject';
-import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-mission-images',
@@ -21,7 +15,6 @@ import { takeUntil } from 'rxjs';
 export class MissionImagesComponent implements OnInit, OnDestroy {
   destroySubscriptions$: Subject<boolean> = new Subject<boolean>();
   missionPhotos!: SingleDayPhoto[] | null;
-  chosenImg!: string;
   @Output()loadMoreImages = new EventEmitter();
 
   cols: number = 5;
