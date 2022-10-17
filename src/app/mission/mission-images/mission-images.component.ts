@@ -1,8 +1,8 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
-import { SingleDayPhoto } from '../../models/mission-manifest.model';
-import { MissionService } from '../../services/mission.service';
+import { SingleDayPhoto } from '../../shared/models/mission-manifest.model';
+import { MissionService } from '../../shared/services/mission.service';
 import {
   Component,
   EventEmitter,

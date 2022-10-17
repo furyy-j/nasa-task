@@ -6,7 +6,7 @@ import {
     SingleDayPhoto,
     SingleDayPhotos,
 } from '../models/mission-manifest.model';
-import MissionManifest from '../models/mission-manifest.model';
+import MissionManifest from "../models/mission-manifest.model";
 
 @Injectable({
     providedIn: 'root',

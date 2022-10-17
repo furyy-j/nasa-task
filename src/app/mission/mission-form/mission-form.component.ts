@@ -3,8 +3,8 @@ import { Component, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { MissionService } from '../../services/mission.service';
-import { SingleDayInfo } from '../../models/mission-manifest.model';
+import { MissionService } from '../../shared/services/mission.service';
+import {SingleDayInfo} from "../../shared/models/mission-manifest.model";
 
 @Component({
   selector: 'app-mission-form',

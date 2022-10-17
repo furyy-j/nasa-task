@@ -1,2 +1,3 @@
-<p>mission works!</p>
-<app-loading-spinner>1</app-loading-spinner>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<app-mission-form (formConfirmation)="loadPhotos()"></app-mission-form>
+<app-mission-images (loadMoreImages)="loadPhotos()"></app-mission-images>

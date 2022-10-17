@@ -2,7 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { MissionService } from '../services/mission.service';
+import { MissionService } from '../shared/services/mission.service';
 
 @Component({
   selector: 'app-mission',

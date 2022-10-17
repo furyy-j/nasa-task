@@ -11,8 +11,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MissionImagesComponent } from './mission/mission-images/mission-images.component';
 import { MissionFormComponent } from './mission/mission-form/mission-form.component';
 import { MissionComponent } from './mission/mission.component';
-import { APIInterceptorService } from './services/interceptor.service';
-import {LoadingSpinnerComponent} from "./mission/shared/loading-spinner/loading-spinner.component";
+import { APIInterceptorService } from './shared/services/interceptor.service';
+import {LoadingSpinnerComponent} from "./shared/loading-spinner/loading-spinner.component";
 
 @NgModule({
   declarations: [
