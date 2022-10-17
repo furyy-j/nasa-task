@@ -1,1 +1,76 @@
-<p>mission-form works!</p>
+<form #form [formGroup]="imageLoadingForm" (ngSubmit)="confirmForm()">
+	<mat-card>
+		<mat-card-title>Select the rover</mat-card-title>
+
+		<mat-radio-group [formControl]="roverType" [value]="roverType.value" fxHide.xs>
+			<mat-radio-button color="primary" [value]="option" *ngFor="let option of roverOptions"
+							  (click)="getInitialInfo(option)" type="button">{{option}}</mat-radio-button>
+		</mat-radio-group>
+
+		<mat-form-field appearance="fill" color="primary" fxHide.gt-xs>
+			<mat-label>Rover</mat-label>
+			<mat-select color="primary" [formControl]="roverType" [value]="roverType.value">
+				<mat-option *ngFor="let option of roverOptions" [value]="option" (click)="getInitialInfo(option)" type="button">
+					{{option}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+
+	</mat-card>
+
+
+	<mat-card *ngIf="maxSol" color="primary">
+		<mat-card-title *ngIf="chosenDate.value<=0; else chosenDay">Choose a Martian Day</mat-card-title>
+		<mat-card-content>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Martian Day</mat-label>
+				<input
+						(keyup)="confirmSol($event);"
+						[value]="chosenDate.value"
+						[formControl]="chosenDate"
+						type="number"
+						min="0"
+						matInput>
+				<mat-error>Enter correct date</mat-error>
+			</mat-form-field>
+
+			<mat-slider
+					(change)="confirmSol()"
+					[value]="chosenDate.value"
+					[formControl]="chosenDate"
+					[max]="maxSol"
+					tickInterval="500"
+					min="0"
+					fxHide.xs
+					color="primary" >
+			</mat-slider>
+
+		</mat-card-content>
+	</mat-card>
+
+	<mat-card *ngIf="cameras.length>0 && maxSol ">
+		<mat-card-title>{{roverType.value}} {{cameras.length>1? 'cameras':'camera'}} on the {{chosenDate.value}} sol
+		</mat-card-title>
+
+		<mat-radio-group [formControl]="chosenCamera" [value]="chosenCamera.value" fxHide.xs fxHide.xs required>
+			<mat-radio-button color="primary" *ngFor="let camera of cameras" type="submit" [value]="camera">{{camera}}
+			</mat-radio-button>
+		</mat-radio-group>
+
+		<mat-form-field appearance="fill" color="primary" fxHide.gt-xs>
+			<mat-label>Camera</mat-label>
+			<mat-select color="primary" [value]="chosenCamera.value" [formControl]="chosenCamera" required>
+				<mat-option *ngFor="let camera of cameras" type="submit" [value]="camera">
+					{{camera}}</mat-option>
+			</mat-select>
+			<mat-error>You have to choose the camera</mat-error>
+		</mat-form-field>
+
+		<button *ngIf="chosenCamera.value!=''" mat-raised-button color="primary" type="submit"
+				[disabled]="imageLoadingForm.invalid">Confirm the choice</button>
+	</mat-card>
+</form>
+
+<ng-template #chosenDay>
+	<mat-card-title>{{chosenDate.value}} out of {{maxSol}} Martian days</mat-card-title>
+</ng-template>

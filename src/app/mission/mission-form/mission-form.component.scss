@@ -1,0 +1,78 @@
+form {
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+
+mat-card {
+  opacity: 0.9;
+  margin: 0 auto;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  @media (width<750px) {
+    width: 80vw;
+  }
+}
+
+mat-radio-group {
+  min-width: 50vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  & mat-radio-button {
+    font-size: 1rem;
+    font-weight: 800;
+  }
+}
+
+
+mat-card-content {
+  min-width: 50vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+mat-card-title {
+  color: #64ffda;
+  transition: 0.5s;
+  text-align: center;
+}
+
+mat-slider,
+mat-form-field {
+  min-width: 50vw;
+}
+
+button {
+  margin: 0 auto;
+  width: fit-content;
+  height: fit-content;
+  font-size: 1rem;
+  padding: 0.2rem;
+  line-height: 1.5rem;
+}
+
+
+mat-form-field {
+  position: relative;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 0
+  }
+}
