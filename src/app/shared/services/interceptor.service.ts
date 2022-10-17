@@ -10,7 +10,16 @@ import { environment } from 'src/environments/environment';
 export class APIInterceptorService implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        const apiReq = req.clone({ url: `${req.url+environment.api}` });
-        return next.handle(apiReq);
+        // this.headers.append('Access-Control-Allow-Methods');
+        const apiReq = req.clone({
+            url: `${req.url + environment.api}`,
+            // setHeaders: {
+            //   'Access-Control-Allow-Origin': '*',
+            //   'Cross-Origin-Opener-Policy': '*',
+            //   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+            // },
+        });
+
+        return next.handle(apiReq,);
     }
 }

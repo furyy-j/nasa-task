@@ -22,7 +22,7 @@ export class MissionImagesComponent implements OnInit, OnDestroy {
   destroySubscriptions$: Subject<boolean> = new Subject<boolean>();
   missionPhotos!: SingleDayPhoto[] | null;
   chosenImg!: string;
-  @Output() loadMoreImages = new EventEmitter();
+  @Output()loadMoreImages = new EventEmitter();
 
   cols: number = 5;
   gridByBreakpoint = {
@@ -74,13 +74,12 @@ export class MissionImagesComponent implements OnInit, OnDestroy {
     ).subscribe(
         (photos) => {
           this.missionPhotos = photos;
-          console.log(photos)
           this.mService.isLoading.next(false);
         },
         () => {
           this.mService.isLoading.next(false);
           this.snackBar.open(
-              'Unexpected error occured! Check your internet connection and try again later',
+              'Unexpected error occurred! Check your internet connection and try again later',
               'Gpt it!',
               {
                 duration: 4000,

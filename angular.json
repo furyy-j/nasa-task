@@ -3,11 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "nasa-task": {
+    "nasa-mission": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/nasa-task",
+            "outputPath": "dist/nasa-mission",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -37,7 +40,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "1mb",
                   "maximumError": "1mb"
                 },
                 {
@@ -69,18 +72,24 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "nasa-task:build:production"
+              "browserTarget": "nasa-mission:build:production"
             },
             "development": {
-              "browserTarget": "nasa-task:build:development"
+              "browserTarget": "nasa-mission:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "headers": {
+              "Cross-Origin-Opener-Policy": "*",
+              "Cross-Origin-Embedder-Policy": "false"
+            }
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nasa-task:build"
+            "browserTarget": "nasa-mission:build"
           }
         },
         "test": {
@@ -104,6 +113,7 @@
       }
     }
   },
+  "defaultProject": "nasa-mission",
   "cli": {
     "analytics": false
   }

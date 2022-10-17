@@ -1,14 +1,14 @@
-<section *ngIf="missionPhotos">
-	<ng-container>
+<section *ngIf="missionPhotos" style="padding-bottom: 100px;">
+	<ng-container >
 		<mat-card-title>Photos taken by {{missionPhotos[0].camera.full_name}}</mat-card-title>
 		<mat-grid-list [cols]="cols" [gutterSize]="'0.5rem'">
-			<mat-grid-tile *ngFor="let image of missionPhotos;let i = index">
-				<img [src]="image.img_src" crossorigin>
-			</mat-grid-tile>
+			<mat-grid-tile *ngFor="let image of missionPhotos">
+				<img [src]="image.img_src" alt="image.img_src">
+			</mat-grid-tile >
 		</mat-grid-list>
 	</ng-container>
 </section>
 
 <div *ngIf="missionPhotos">
-	<button mat-raised-button *ngIf="missionPhotos.length>=25" color="primary" (click)="loadMore()">Load another part of photos</button>
+	<button mat-raised-button *ngIf="missionPhotos.length>=25" color="primary" (click)="loadMore()">Load next part of photos</button>
 </div>

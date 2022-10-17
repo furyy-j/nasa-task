@@ -17,14 +17,14 @@ export class MissionService {
     isLoading = new BehaviorSubject<boolean>(false);
 
     constructor(private http: HttpClient) {}
-    httpReqest: string = 'https://api.nasa.gov/mars-photos/api/v1/';
+    httpRequest: string = 'https://api.nasa.gov/mars-photos/api/v1/';
     photosRequest: string = '';
     pageRequest: string = `&page=${this.page}`;
 
     load(roverInfo: string) {
         let requestBody: string = `manifests/${roverInfo}/?`;
         return this.http
-            .get<MissionManifest>(this.httpReqest + requestBody )
+            .get<MissionManifest>(this.httpRequest + requestBody )
             .pipe(
                 map((manifest) => {
                     return manifest.photo_manifest;
@@ -37,12 +37,11 @@ export class MissionService {
         chosenDate: number,
         chosenCamera: string
     ) {
-        this.photosRequest = `${this.httpReqest}/rovers/${roverType}/photos?sol=${chosenDate}&camera=${chosenCamera}`;
+        this.photosRequest = `${this.httpRequest}/rovers/${roverType}/photos?sol=${chosenDate}&camera=${chosenCamera}`;
     }
 
     loadPhotos() {
         this.page++;
-        console.log(this.page)
         this.pageRequest = `&page=${this.page}`;
         this.pageRequest = `${this.pageRequest}&`;
 
