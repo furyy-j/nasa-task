@@ -2,13 +2,11 @@
 
 Main config:
 
-        "@angular/cli": "~13.3.6",
+        "@angular/cli": "~14.1.3",
         
-        "@angular/cdk": "^13.3.9",
+        "@angular/flex-layout": "^14.0.0-beta.41",
         
-        "@angular/flex-layout": "^13.0.0-beta.38",
-        
-        "@angular/material": "^13.3.9",
+        "@angular/material": "^14.2.5",
 
 Installation instructions:
 
