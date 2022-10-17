@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+$nasa-mission-primary: mat.define-palette(mat.$teal-palette, A200, A400);
+$nasa-mission-accent: mat.define-palette(mat.$grey-palette);
+
+$nasa-mission-theme: mat.define-light-theme((color: (primary: $nasa-mission-primary,
+        accent: $nasa-mission-accent,
+)));
+$nasa-mission-theme: mat.define-dark-theme((color: (primary: $nasa-mission-primary,
+        accent: $nasa-mission-accent,
+)));
+@include mat.all-component-themes($nasa-mission-theme);
+
+
+.cyan-snackbar {
+  background: #64ffda;
+  color: black;
+  opacity: 0.9;
+
+  button {
+    background-color: #64ffda;
+    border: none;
+  }
+}
+
+.red-snackbar {
+  background: #ce2c2c;
+  color: black;
+  opacity: 0.9;
+
+  button {
+    background-color: #c43535;
+    border: 1px solid black;
+  }
+}
+
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

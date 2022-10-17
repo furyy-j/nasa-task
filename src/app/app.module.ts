@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MissionComponent } from './mission/mission.component';
+import { MissionFormComponent } from './mission/mission-form/mission-form.component';
+import { MissionImagesComponent } from './mission/mission-images/mission-images.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MissionComponent,
+    MissionFormComponent,
+    MissionImagesComponent
   ],
   imports: [
     BrowserModule,
