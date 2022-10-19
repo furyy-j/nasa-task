@@ -11,7 +11,7 @@ Main config:
 Installation instructions:
 
 Make pull request via console:
-git clone https://https://github.com/furyy-j/nasa-task/.git
+git clone https://github.com/furyy-j/nasa-task/.git
 
 
 - In the repository folder terminal write "npm install"
